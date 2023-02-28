@@ -1,0 +1,28 @@
+<h2>Queries</h2>
+<label>Player with the most touchdown passes:</label>
+<button (click)="getMostTouchdownPasses()">Get</button>
+<div *ngIf="mostTouchdownPasses">
+  <p>{{ mostTouchdownPasses.name }} - {{ mostTouchdownPasses.touchdownsThrown }}</p>
+</div>
+<label>Player with the most rushing yards:</label>
+<button (click)="getMostRushingYards()">Get</button>
+<div *ngIf="mostRushingYards">
+  <p>{{ mostRushingYards.name }} - {{ mostRushingYards.rushingYards }}</p>
+</div>
+<label>Player with the least rushing yards:</label>
+<button (click)="getLeastRushingYards()">Get</button>
+<div *ngIf="leastRushingYards">
+  <p>{{ leastRushingYards.name }} - {{ leastRushingYards.rushingYards }}</p>
+</div>
+<label>List of players sorted from most to fewest field goals made:</label>
+<button (click)="getPlayersByFieldGoalsMade()">Get</button>
+<div *ngIf="playersByFieldGoalsMade">
+  <ul>
+    <li *ngFor="let player of playersByFieldGoalsMade">{{ player.name }} - {{ player.fieldGoalsMade }}</li>
+  </ul>
+</div>
+<label>Player with the most number of sacks:</label>
+<button (click)="getMostSacks()">Get</button>
+<div *ngIf="mostSacks">
+  <p>{{ mostSacks.name }} - {{ mostSacks.sacks }}</p>
+</div>
