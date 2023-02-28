@@ -1,0 +1,56 @@
+<h2>Players</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Rushing Yards</th>
+      <th>Touchdowns Thrown</th>
+      <th>Sacks</th>
+      <th>Field Goals Made</th>
+      <th>Field Goals Missed</th>
+      <th>Catches Made</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td>{{ player.name }}</td>
+      <td>{{ player.position }}</td>
+      <td>{{ player.rushingYards }}</td>
+      <td>{{ player.touchdownsThrown }}</td>
+      <td>{{ player.sacks }}</td>
+      <td>{{ player.fieldGoalsMade }}</td>
+      <td>{{ player.fieldGoalsMissed }}</td>
+      <td>{{ player.catchesMade }}</td>
+      <td>
+        <button (click)="editPlayer(player)">Edit</button>
+        <button (click)="deletePlayer(player)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="addPlayer()">Add Player</button>
+<div *ngIf="selectedPlayer">
+  <h2>Edit Player</h2>
+  <form (submit)="savePlayer()">
+    <label>Name:</label>
+    <input [(ngModel)]="selectedPlayer.name" name="name" required>
+    <label>Position:</label>
+    <input [(ngModel)]="selectedPlayer.position" name="position" required>
+    <label>Rushing Yards:</label>
+    <input [(ngModel)]="selectedPlayer.rushingYards" name="rushingYards" type="number" required>
+    <label>Touchdowns Thrown:</label>
+    <input [(ngModel)]="selectedPlayer.touchdownsThrown" name="touchdownsThrown" type="number" required>
+    <label>Sacks:</label>
+    <input [(ngModel)]="selectedPlayer.sacks" name="sacks" type="number" required>
+    <label>Field Goals Made:</label>
+    <input [(ngModel)]="selectedPlayer.fieldGoalsMade" name="fieldGoalsMade" type="number" required>
+    <label>Field Goals Missed:</label>
+    <input [(ngModel)]="selectedPlayer.fieldGoalsMissed" name="fieldGoalsMissed" type="number" required>
+    <label>Catches Made:</label>
+    <input [(ngModel)]="selectedPlayer.catchesMade" name="catchesMade" type="number" required>
+    <button type="submit">Save</button>
+    <button type="button" (click)="cancel()">Cancel</button>
+  </form>
+</div>
